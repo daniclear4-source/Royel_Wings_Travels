@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Popular Rides — Royal Wings Travel</title>
+  <meta name="description" content="Explore our most popular local and outstation taxi routes. Fixed rates, professional drivers, Dzire and Ertiga fleets from Jamshedpur." />
+  <meta name="keywords" content="popular rides, cab routes Jamshedpur, Ranchi cab, Kolkata cab, Dzire, Ertiga" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #1b2d45;
+      --navy-deep: #111f33;
+      --teal: #1a535c;
+      --teal-light: #267a87;
+      --gold: #c4973b;
+      --gold-light: #ddb865;
+      --sand: #f5efe6;
+      --sand-light: #faf8f4;
+      --terracotta: #c2654a;
+      --cream: #fdf9f3;
+      --dark: #2c2c2c;
+      --muted: #6b6b6b;
+      --border: #e0d8cc;
+      --orange-accent: #E65100;
+      --orange-bg: #FFF3E0;
+      --orange-border: #FFCCBC;
+      --orange-btn: #E64A19;
+      --orange-btn-hover: #D84315;
+      --shadow-sm: 0 2px 8px rgba(27,45,69,.07);
+      --shadow-md: 0 6px 24px rgba(27,45,69,.10);
+      --shadow-lg: 0 12px 48px rgba(27,45,69,.14);
+      --radius: 6px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --font-heading: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+      --font-accent: 'Caveat', cursive;
+      --transition: .3s ease;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.7;
+      color: var(--dark);
+      background: var(--cream);
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c4973b' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      -webkit-font-smoothing: antialiased;
+      padding-top: 80px; /* Space for fixed header */
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; border: none; background: none; }
+
+    /* ===== HEADER ===== */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,253,249,.97);
+      box-shadow: 0 2px 20px rgba(27,45,69,.08);
+      backdrop-filter: blur(12px);
+      transition: padding var(--transition);
+    }
+    .header-inner {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      color: var(--navy);
+    }
+    .logo-icon {
+      width: 48px; height: 48px;
+      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      background: #fff;
+      border: 2px solid var(--gold);
+      padding: 5px;
+    }
+    .logo-icon img { width: 100%; height: 100%; object-fit: contain; }
+    .logo span { font-weight: 400; }
+
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: .92rem;
+      font-weight: 500;
+      color: var(--dark);
+      letter-spacing: .3px;
+      position: relative;
+      transition: color var(--transition);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: var(--gold);
+      transition: width var(--transition);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-cta {
+      display: inline-block;
+      padding: 10px 26px;
+      background: var(--gold);
+      color: #fff !important;
+      font-weight: 600;
+      font-size: .9rem;
+      border-radius: 50px;
+      letter-spacing: .4px;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .nav-cta:hover { background: var(--terracotta); transform: translateY(-1px); }
+
+    .menu-toggle {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      width: 32px; height: 24px;
+      position: relative; z-index: 1001;
+    }
+    .menu-toggle span {
+      display: block;
+      width: 100%; height: 2.5px;
+      background: var(--navy);
+      border-radius: 2px;
+      position: absolute; left: 0;
+      transition: all .3s;
+    }
+    .menu-toggle.active span { background: var(--cream) !important; }
+    .menu-toggle span:nth-child(1) { top: 0; }
+    .menu-toggle span:nth-child(2) { top: 10px; }
+    .menu-toggle span:nth-child(3) { top: 20px; }
+    .menu-toggle.active span:nth-child(1) { top: 10px; transform: rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { top: 10px; transform: rotate(-45deg); }
+
+    .mobile-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(17,31,51,.6);
+      z-index: 998;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    .mobile-overlay.active { opacity: 1; pointer-events: auto; }
+
+    /* ===== HERO/HEADER SEGMENT ===== */
+    .rides-intro {
+      padding: 60px 0 30px 0;
+      text-align: center;
+    }
+    .rides-intro h1 {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      color: var(--navy);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+    .rides-intro h1 .title-icon {
+      background: #E65100;
+      color: #fff;
+      font-size: 1.5rem;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(230,81,0,.25);
+    }
+    .rides-intro p {
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    /* ===== SEARCH & FILTER BAR ===== */
+    .search-filter-wrap {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow-sm);
+    }
+    .search-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+    .search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 12px 16px 12px 46px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      outline: none;
+      font-size: 0.95rem;
+      transition: border var(--transition);
+    }
+    .search-box input:focus {
+      border-color: var(--gold);
+    }
+    .search-box svg {
+      position: absolute;
+      left: 16px;
+      color: var(--muted);
+      width: 18px; height: 18px;
+    }
+    .filter-select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      outline: none;
+      font-size: 0.95rem;
+      background: #fff;
+      color: var(--dark);
+      cursor: pointer;
+    }
+    .direction-tabs {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      border-top: 1px solid #f0eae1;
+      padding-top: 18px;
+    }
+    .tab-btn {
+      padding: 8px 18px;
+      background: var(--sand-light);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--navy);
+      transition: all var(--transition);
+    }
+    .tab-btn.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
+    /* ===== RIDES GRID & CARDS ===== */
+    .rides-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+    .ride-card {
+      background: #fff;
+      border: 1px solid var(--orange-border);
+      border-radius: var(--radius-xl);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform var(--transition), box-shadow var(--transition);
+      box-shadow: 0 4px 12px rgba(230,81,0,0.02);
+    }
+    .ride-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(230,81,0,0.06);
+    }
+
+    /* Badge styles */
+    .pop-badge {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: #FF9800;
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Icon details */
+    .card-header-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      margin-top: 8px;
+    }
+    .pin-icon-box {
+      width: 42px; height: 42px;
+      background: var(--orange-bg);
+      color: var(--orange-accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .pin-icon-box svg { width: 22px; height: 22px; }
+
+    .route-info h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--navy-deep);
+      text-align: left;
+      line-height: 1.3;
+    }
+
+    /* Car Detail line */
+    .car-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+      border-bottom: 1px dashed #f0eae1;
+      padding-bottom: 12px;
+    }
+    .car-info svg { width: 16px; height: 16px; color: var(--muted); }
+
+    /* Price Line */
+    .price-wrap {
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .price-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      margin-bottom: 2px;
+    }
+    .price-value {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--orange-accent);
+      line-height: 1;
+    }
+
+    /* Top Pick Badge */
+    .top-pick-badge {
+      background: var(--orange-bg);
+      color: var(--orange-accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Book Button */
+    .book-btn {
+      width: 100%;
+      padding: 12px;
+      background: var(--orange-btn);
+      color: #fff;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background var(--transition);
+      margin-top: auto;
+    }
+    .book-btn:hover {
+      background: var(--orange-btn-hover);
+    }
+    .book-btn svg { width: 18px; height: 18px; }
+
+    /* No results display */
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 0;
+      color: var(--muted);
+      display: none;
+    }
+    .no-results svg { width: 48px; height: 48px; color: var(--border); margin-bottom: 12px; }
+
+    /* ===== FOOTER ===== */
+    .site-footer {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,.7);
+      padding: 80px 0 35px 0;
+      border-top: 4px solid var(--gold);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+    .footer-brand .logo { color: #fff; margin-bottom: 20px; }
+    .footer-brand .logo-icon { background: #fff; }
+    .footer-brand p { font-size: .95rem; line-height: 1.7; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 14px; }
+    .footer-social a {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,.05);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: background var(--transition), color var(--transition);
+      color: #fff;
+    }
+    .footer-social a:hover { background: var(--gold); color: #fff; }
+    .footer-social a svg { width: 18px; height: 18px; fill: currentColor; }
+
+    .footer-col h4 {
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 25px;
+      font-family: var(--font-heading);
+      letter-spacing: .5px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul li a { transition: color var(--transition); font-size: .92rem; }
+    .footer-col ul li a:hover { color: var(--gold); }
+
+    .footer-contact-item {
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 18px;
+      font-size: .92rem;
+    }
+    .footer-contact-item svg {
+      width: 20px; height: 20px;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding-top: 30px;
+      text-align: center;
+      font-size: .85rem;
+      color: rgba(255,255,255,.45);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 991px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .footer-brand { grid-column: 1 / -1; }
+      .search-row { grid-template-columns: 1fr 1fr; }
+      .search-box { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed;
+        top: 0; right: -100%;
+        width: 80%; max-width: 340px;
+        height: 100vh;
+        height: 100dvh;
+        background: var(--navy-deep);
+        flex-direction: column;
+        padding: 100px 40px 40px;
+        gap: 20px;
+        z-index: 100;
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: -10px 0 30px rgba(0,0,0,0.25);
+        overflow-y: auto;
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a { color: rgba(255,255,255,.85) !important; font-size: 1.05rem; }
+      .nav-links a::after { display: none; }
+      .nav-cta { display: block; width: 100%; text-align: center; margin-top: 12px; }
+      body { padding-top: 70px; }
+    }
+
+    @media (max-width: 576px) {
+      .search-row { grid-template-columns: 1fr; }
+      .direction-tabs { flex-wrap: wrap; }
+      .rides-intro h1 { font-size: 2.2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===== FLOATING BUTTONS ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 999;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      transition: transform var(--transition), box-shadow var(--transition);
+      animation: waPulse 2s infinite;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,.55);
+    }
+    .whatsapp-float svg { width: 30px; height: 30px; fill: #fff; }
+    @keyframes waPulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,.4); }
+      50% { box-shadow: 0 4px 28px rgba(37,211,102,.6); }
+    }
+    .wa-tooltip {
+      position: absolute;
+      right: 72px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      color: var(--dark);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: .85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+    .whatsapp-float:hover .wa-tooltip { opacity: 1; }
+
+    .phone-float {
+      position: fixed;
+      bottom: 104px; right: 28px;
+      z-index: 999;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(196,151,59,.4);
+      transition: transform var(--transition), box-shadow var(--transition);
+      animation: phonePulse 2s infinite;
+      color: #fff;
+    }
+    .phone-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(196,151,59,.55);
+    }
+    .phone-float svg { width: 28px; height: 28px; }
+    @keyframes phonePulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(196,151,59,.4); }
+      50% { box-shadow: 0 4px 28px rgba(196,151,59,.6); }
+    }
+    .phone-tooltip {
+      position: absolute;
+      right: 72px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      color: var(--dark);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: .85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+    .phone-float:hover .phone-tooltip { opacity: 1; }
+
+    @media (max-width: 576px) {
+      .whatsapp-float { width: 50px; height: 50px; bottom: 16px; right: 16px; }
+      .whatsapp-float svg { width: 24px; height: 24px; }
+      .wa-tooltip { display: none; }
+      .phone-float { width: 50px; height: 50px; bottom: 78px; right: 16px; left: auto; }
+      .phone-float svg { width: 22px; height: 22px; }
+      .phone-tooltip { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <img src="images/logo.png" alt="Royal Wings Travel Logo" />
+        </div>
+        <span>Royal Wings Travel</span>
+      </a>
+
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="rides.html" style="color: var(--gold);">Popular Rides</a></li>
+          <li><a href="index.html#testimonials">Testimonials</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="index.html#contact" class="nav-cta">Book Cab</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+  </header>
+
+  <!-- INTRO -->
+  <section class="rides-intro">
+    <div class="container">
+      <h1>
+        <span class="title-icon">★</span>
+        Popular Rides
+      </h1>
+      <p>Most booked rides by our travelers</p>
+    </div>
+  </section>
+
+  <!-- SEARCH & FILTERS -->
+  <section class="filters-sec">
+    <div class="container">
+      <div class="search-filter-wrap">
+        <div class="search-row">
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="search-input" placeholder="Search routes (e.g. Ranchi, Kolkata, Jamshedpur...)" />
+          </div>
+          <div>
+            <select class="filter-select" id="vehicle-filter">
+              <option value="all">All Vehicle Types</option>
+              <option value="dzire">Maruti Suzuki Swift Dzire (Sedan)</option>
+              <option value="ertiga">Maruti Suzuki Ertiga (SUV)</option>
+            </select>
+          </div>
+          <div>
+            <select class="filter-select" id="sort-filter">
+              <option value="default">Sort by Default</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="direction-tabs">
+          <button class="tab-btn active" data-dir="all">All Rides</button>
+          <button class="tab-btn" data-dir="from-jssr">Outstation From Jamshedpur</button>
+          <button class="tab-btn" data-dir="to-jssr">Outstation To Jamshedpur</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDS GRID -->
+  <section class="cards-sec">
+    <div class="container">
+      <div class="rides-grid" id="rides-grid">
+
+        <!-- Card 1: Kharagpur -> Jamshedpur -->
+        <div class="ride-card" data-from="Kharagpur" data-to="Jamshedpur" data-car="dzire" data-price="2699" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Kharagpur ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹2,699</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 2: Patna -> Jamshedpur -->
+        <div class="ride-card" data-from="Patna" data-to="Jamshedpur" data-car="dzire" data-price="8499" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Patna ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹8,499</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 3: Gaya -> Jamshedpur -->
+        <div class="ride-card" data-from="Gaya" data-to="Jamshedpur" data-car="dzire" data-price="6999" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Gaya ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹6,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 4: Hazaribagh -> Jamshedpur -->
+        <div class="ride-card" data-from="Hazaribagh" data-to="Jamshedpur" data-car="dzire" data-price="2699" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Hazaribagh ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹2,699</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 5: Durgapur -> Jamshedpur -->
+        <div class="ride-card" data-from="Durgapur" data-to="Jamshedpur" data-car="dzire" data-price="2699" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Durgapur ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹2,699</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 6: Jamshedpur -> Durgapur -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Durgapur" data-car="dzire" data-price="2999" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Durgapur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹2,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 7: Asansol -> Jamshedpur -->
+        <div class="ride-card" data-from="Asansol" data-to="Jamshedpur" data-car="dzire" data-price="2699" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Asansol ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹2,699</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 8: Bokaro -> Jamshedpur (Ertiga) -->
+        <div class="ride-card" data-from="Bokaro" data-to="Jamshedpur" data-car="ertiga" data-price="2499" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Bokaro ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Ertiga</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹2,499</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 9: Bokaro -> Jamshedpur (Dzire) -->
+        <div class="ride-card" data-from="Bokaro" data-to="Jamshedpur" data-car="dzire" data-price="2199" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Bokaro ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹2,199</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 10: Dhanbad -> Jamshedpur (Ertiga) -->
+        <div class="ride-card" data-from="Dhanbad" data-to="Jamshedpur" data-car="ertiga" data-price="3199" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Dhanbad ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Ertiga</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹3,199</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 11: Dhanbad -> Jamshedpur (Dzire) -->
+        <div class="ride-card" data-from="Dhanbad" data-to="Jamshedpur" data-car="dzire" data-price="2699" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Dhanbad ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹2,699</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 12: Kolkata -> Jamshedpur -->
+        <div class="ride-card" data-from="Kolkata" data-to="Jamshedpur" data-car="dzire" data-price="3999" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Kolkata ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹3,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 13: Howrah -> Jamshedpur -->
+        <div class="ride-card" data-from="Howrah" data-to="Jamshedpur" data-car="dzire" data-price="3999" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Howrah ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹3,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 14: Ranchi -> Jamshedpur (Ertiga) -->
+        <div class="ride-card" data-from="Ranchi" data-to="Jamshedpur" data-car="ertiga" data-price="1799" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Ranchi ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Ertiga</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹1,799</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 15: Ranchi -> Jamshedpur (Dzire) -->
+        <div class="ride-card" data-from="Ranchi" data-to="Jamshedpur" data-car="dzire" data-price="1550" data-direction="to-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Ranchi ➔ Jamshedpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹1,550</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 16: Jamshedpur -> Bhubneshwar -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Bhubneshwar" data-car="dzire" data-price="9999" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Bhubneshwar</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹9,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 17: Jamshedpur -> Puri -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Puri" data-car="dzire" data-price="10999" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Puri</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹10,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 18: Jamshedpur -> Varanasi -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Varanasi" data-car="dzire" data-price="14999" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Varanasi</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹14,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 19: Jamshedpur -> Gaya -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Gaya" data-car="dzire" data-price="8499" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Gaya</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹8,499</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 20: Jamshedpur -> Patna -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Patna" data-car="dzire" data-price="9999" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Patna</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹9,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 21: Jamshedpur -> Howrah -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Howrah" data-car="dzire" data-price="4499" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Howrah</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹4,499</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 22: Jamshedpur -> Kharagpur -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Kharagpur" data-car="dzire" data-price="2999" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Kharagpur</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹2,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 23: Jamshedpur -> Deoghar -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Deoghar" data-car="dzire" data-price="5499" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Deoghar</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹5,499</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 24: Jamshedpur -> Kolkata (Ertiga) -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Kolkata" data-car="ertiga" data-price="4999" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Kolkata</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Ertiga</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹4,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 25: Jamshedpur -> Kolkata (Dzire) -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Kolkata" data-car="dzire" data-price="4499" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Kolkata</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹4,499</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 26: Jamshedpur -> Ranchi (Ertiga) -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Ranchi" data-car="ertiga" data-price="1999" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Ranchi</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Ertiga</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹1,999</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- Card 27: Jamshedpur -> Ranchi (Dzire) -->
+        <div class="ride-card" data-from="Jamshedpur" data-to="Ranchi" data-car="dzire" data-price="1649" data-direction="from-jssr">
+          <span class="pop-badge">★ Popular</span>
+          <div class="card-header-row">
+            <div class="pin-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="route-info">
+              <h3>Jamshedpur ➔ Ranchi</h3>
+            </div>
+          </div>
+          <div class="car-info">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 1 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg>
+            <span>Maruti Suzuki Swift Dzire</span>
+          </div>
+          <div class="price-wrap">
+            <div>
+              <div class="price-label">Starting from</div>
+              <div class="price-value">₹1,649</div>
+            </div>
+            <span class="top-pick-badge">👍 Top Pick</span>
+          </div>
+          <a href="#" class="book-btn" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Book Ride
+          </a>
+        </div>
+
+        <!-- No results template -->
+        <div class="no-results" id="no-results-msg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="8" x2="16" y1="12" y2="12"/></svg>
+          <p>No matching rides found. Try another search or filter.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <div class="logo-icon">
+              <img src="images/logo.png" alt="Royal Wings Travel Logo" />
+            </div>
+            <span>Royal Wings Travel</span>
+          </a>
+          <p>Your trusted travel partner in Jamshedpur. Providing high-quality cab services, local city rides, and outstation taxi facilities since 2016.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5"/></svg>
+            </a>
+            <a href="https://wa.me/917667030073" target="_blank" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube">
+              <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.43z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#111f33"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="rides.html">Popular Rides</a></li>
+            <li><a href="index.html#destinations">Cab Routes</a></li>
+            <li><a href="index.html#testimonials">Testimonials</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Us</h4>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>645, Khutadih, Sonari, Main Chowk, Near Airport, Jamshedpur</span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            <span><a href="tel:7667030073">76670 30073</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" ry="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span><a href="mailto:royaltravels19342@gmail.com">royaltravels19342@gmail.com</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Royal Wings Travel. All rights reserved. | Jamshedpur, Jharkhand
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a
+    href="https://wa.me/917667030073?text=Hi%20Royal%20Wings%20Travel,%20I%20would%20like%20to%20book%20a%20cab%20ride."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    id="whatsapp-float"
+    aria-label="Chat on WhatsApp"
+  >
+    <svg viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.29-1.23l-.31-.18-2.87.85.78-2.83-.2-.32A8 8 0 1112 20z"/>
+    </svg>
+    <span class="wa-tooltip">Chat with us!</span>
+  </a>
+
+  <!-- FLOATING CALL BUTTON -->
+  <a
+    href="tel:7667030073"
+    class="phone-float"
+    id="phone-float"
+    aria-label="Call Royal Wings Travel"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+    </svg>
+    <span class="phone-tooltip">Call us now!</span>
+  </a>
+
+  <!-- JAVASCRIPT FOR SEARCH & FILTERS -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-input');
+      const vehicleFilter = document.getElementById('vehicle-filter');
+      const sortFilter = document.getElementById('sort-filter');
+      const tabBtns = document.querySelectorAll('.tab-btn');
+      const cardsGrid = document.getElementById('rides-grid');
+      const cards = Array.from(document.querySelectorAll('.ride-card'));
+      const noResultsMsg = document.getElementById('no-results-msg');
+
+      let currentDir = 'all';
+
+      // Setup pre-filled WhatsApp book links for every card dynamically
+      cards.forEach(card => {
+        const from = card.getAttribute('data-from');
+        const to = card.getAttribute('data-to');
+        const carType = card.getAttribute('data-car') === 'dzire' ? 'Maruti Suzuki Swift Dzire (Sedan)' : 'Maruti Suzuki Ertiga (SUV)';
+        const price = card.getAttribute('data-price');
+        const bookBtn = card.querySelector('.book-btn');
+
+        const message = `Hi Royal Wings Travel, I would like to book a ride from ${from} to ${to} in a ${carType} for a flat rate of ₹${price}. Please confirm availability.`;
+        bookBtn.href = `https://wa.me/917667030073?text=${encodeURIComponent(message)}`;
+      });
+
+      // Filter and Sort Handler
+      function filterRides() {
+        const query = searchInput.value.toLowerCase().trim();
+        const selectedCar = vehicleFilter.value;
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+          const from = card.getAttribute('data-from').toLowerCase();
+          const to = card.getAttribute('data-to').toLowerCase();
+          const car = card.getAttribute('data-car');
+          const direction = card.getAttribute('data-direction');
+
+          const matchesSearch = from.includes(query) || to.includes(query);
+          const matchesVehicle = selectedCar === 'all' || car === selectedCar;
+          const matchesDirection = currentDir === 'all' || direction === currentDir;
+
+          if (matchesSearch && matchesVehicle && matchesDirection) {
+            card.style.display = 'flex';
+            visibleCount++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        if (visibleCount === 0) {
+          noResultsMsg.style.display = 'block';
+        } else {
+          noResultsMsg.style.display = 'none';
+        }
+
+        // Apply Sorting
+        sortRides();
+      }
+
+      function sortRides() {
+        const sortVal = sortFilter.value;
+        if (sortVal === 'default') return;
+
+        const visibleCards = cards.filter(card => card.style.display !== 'none');
+        visibleCards.sort((a, b) => {
+          const priceA = parseInt(a.getAttribute('data-price'));
+          const priceB = parseInt(b.getAttribute('data-price'));
+
+          if (sortVal === 'price-asc') {
+            return priceA - priceB;
+          } else if (sortVal === 'price-desc') {
+            return priceB - priceA;
+          }
+          return 0;
+        });
+
+        // Re-append in sorted order
+        visibleCards.forEach(card => {
+          cardsGrid.appendChild(card);
+        });
+      }
+
+      // Input Event Listeners
+      searchInput.addEventListener('input', filterRides);
+      vehicleFilter.addEventListener('change', filterRides);
+      sortFilter.addEventListener('change', filterRides);
+
+      // Tabs Event Listener
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentDir = btn.getAttribute('data-dir');
+          filterRides();
+        });
+      });
+
+      // Mobile Hamburger Toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const navLinks = document.getElementById('nav-links');
+      const mobileOverlay = document.getElementById('mobile-overlay');
+
+      function toggleMenu() {
+        menuToggle.classList.toggle('active');
+        navLinks.classList.toggle('open');
+        mobileOverlay.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
+      }
+
+      menuToggle.addEventListener('click', toggleMenu);
+      mobileOverlay.addEventListener('click', toggleMenu);
+
+      // Close menu when clicking links
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.classList.remove('active');
+          navLinks.classList.remove('open');
+          mobileOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

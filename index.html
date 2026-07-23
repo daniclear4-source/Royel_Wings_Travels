@@ -753,6 +753,48 @@
     }
     .whatsapp-float:hover .wa-tooltip { opacity: 1; }
 
+    /* ===== FLOATING CALL BUTTON ===== */
+    .phone-float {
+      position: fixed;
+      bottom: 104px; right: 28px;
+      z-index: 999;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(196,151,59,.4);
+      transition: transform var(--transition), box-shadow var(--transition);
+      animation: phonePulse 2s infinite;
+      color: #fff;
+    }
+    .phone-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(196,151,59,.55);
+    }
+    .phone-float svg { width: 28px; height: 28px; }
+    @keyframes phonePulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(196,151,59,.4); }
+      50% { box-shadow: 0 4px 28px rgba(196,151,59,.6); }
+    }
+    .phone-tooltip {
+      position: absolute;
+      right: 72px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #fff;
+      color: var(--dark);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: .85rem;
+      font-weight: 500;
+      white-space: nowrap;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+    .phone-float:hover .phone-tooltip { opacity: 1; }
+
     /* ===== SCROLL ANIMATIONS ===== */
     .reveal {
       opacity: 0;
@@ -846,8 +888,9 @@
       .logo { font-size: 1.2rem; gap: 8px; }
 
       /* Hero */
-      .hero { min-height: auto; }
-      .hero-content { padding: 110px 16px 160px; }
+      .hero { min-height: auto; display: flex; flex-direction: column; align-items: stretch; }
+      .hero-content { padding: 110px 16px 40px; }
+      .hero-stat-strip { position: relative; bottom: auto; z-index: 3; }
       .hero-text h1 { font-size: 2rem; line-height: 1.18; }
       .hero-text p { font-size: 1rem; margin-bottom: 28px; }
       .hero-tag { font-size: 1.15rem; }
@@ -922,7 +965,7 @@
       .section-heading { font-size: 1.5rem; }
       .section-desc { font-size: .95rem; }
 
-      .hero-content { padding: 100px 14px 150px; }
+      .hero-content { padding: 100px 14px 30px; }
       .hero-text h1 { font-size: 1.75rem; }
       .hero-text p { font-size: .93rem; line-height: 1.7; }
       .hero-tag { font-size: 1.05rem; }
@@ -942,6 +985,10 @@
       .whatsapp-float svg { width: 24px; height: 24px; }
       .wa-tooltip { display: none; }
 
+      .phone-float { width: 50px; height: 50px; bottom: 78px; right: 16px; left: auto; }
+      .phone-float svg { width: 22px; height: 22px; }
+      .phone-tooltip { display: none; }
+
       .service-card { padding: 22px 18px 20px; }
       .service-card h3 { font-size: 1.15rem; }
       .service-icon { width: 48px; height: 48px; border-radius: 12px; }
@@ -960,9 +1007,17 @@
       .footer-contact-item { font-size: .86rem; }
     }
 
+    /* Rides Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .rides-row {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+      }
+    }
+
     @media (max-width: 360px) {
       .hero-text h1 { font-size: 1.5rem; }
-      .hero-content { padding: 95px 12px 140px; }
+      .hero-content { padding: 95px 12px 25px; }
       .stat-inner { grid-template-columns: 1fr 1fr; gap: 6px; padding: 14px 10px; }
       .stat-item .num { font-size: 1.15rem; }
       .logo span { font-size: .95rem; }
@@ -991,10 +1046,11 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
-          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="rides.html">Popular Rides</a></li>
+          <li><a href="#destinations">Cab Routes</a></li>
           <li><a href="#testimonials">Testimonials</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><a href="#contact" class="nav-cta">Enquire Now</a></li>
+          <li><a href="rides.html" class="nav-cta">Book Cab</a></li>
         </ul>
       </nav>
     </div>
@@ -1006,12 +1062,12 @@
     <div class="hero-bg"></div>
     <div class="hero-content">
       <div class="hero-text">
-        <p class="hero-tag">✦ Jamshedpur's Own Travel Partner</p>
-        <h1>See the World,<br/><em>We Handle the Rest.</em></h1>
-        <p>From weekend getaways to international holidays — we plan trips that fit your budget, your style, and your schedule. No cookie-cutter packages, just honest travel advice from a team that's been doing this for years.</p>
+        <p class="hero-tag">✦ Jamshedpur's Premium Cab Service</p>
+        <h1>Reliable Cabs,<br/><em>Honest Fares.</em></h1>
+        <p>Reliable city rides, flat-rate outstation cabs, and punctual Ranchi Airport transfers. Professional drivers, well-maintained vehicles, and transparent billing with absolutely no surge pricing.</p>
         <div class="hero-buttons">
-          <a href="#contact" class="btn-primary">
-            Plan My Trip
+          <a href="rides.html" class="btn-primary">
+            View Popular Rides
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
           <a href="tel:7667030073" class="btn-outline">
@@ -1024,12 +1080,12 @@
     <div class="hero-stat-strip">
       <div class="stat-inner">
         <div class="stat-item reveal">
-          <div class="num">2,500+</div>
-          <div class="label">Happy Travellers</div>
+          <div class="num">10,000+</div>
+          <div class="label">Happy Rides</div>
         </div>
         <div class="stat-item reveal">
-          <div class="num">150+</div>
-          <div class="label">Destinations</div>
+          <div class="num">50+</div>
+          <div class="label">Outstation Cities</div>
         </div>
         <div class="stat-item reveal">
           <div class="num">8+</div>
@@ -1052,25 +1108,25 @@
         </div>
         <div class="about-content reveal-right">
           <span class="section-label">About Us</span>
-          <h2 class="section-heading">A Travel Agency That<br/>Actually Listens to You</h2>
+          <h2 class="section-heading">A Cab Service That<br/>Actually Listens to You</h2>
           <p class="section-desc">
-            We started Royal Wings Travel right here in Jamshedpur because we saw too many people getting overcharged or stuck with generic tour packages that didn't fit their needs.
+            We started Royal Wings Travel right here in Jamshedpur because we saw too many people getting overcharged by local taxi operators or stuck with unreliable drivers.
           </p>
           <p class="section-desc" style="margin-top: 14px;">
-            Our approach is simple — sit down, understand what you're looking for (budget, interests, travel dates), and then build something that works specifically for you. Whether it's a family trip to Kerala, a honeymoon in Bali, or a corporate offsite in Rajasthan, we handle flights, hotels, cabs, visas — the whole thing — so you don't have to juggle ten different apps.
+            Our approach is simple — provide clean, well-maintained vehicles, employ vetted and professional drivers, and offer fixed, honest pricing. Whether you need a daily commute in town, a reliable outstation trip to Ranchi or Kolkata, or a late-night Ranchi Airport pickup, we handle it all seamlessly via phone or WhatsApp.
           </p>
           <div class="about-highlights">
             <div class="about-highlight">
               <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-              <span>Local Jamshedpur expertise</span>
+              <span>Jamshedpur's top fleet</span>
             </div>
             <div class="about-highlight">
               <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span>150+ destinations covered</span>
+              <span>50+ cities connected</span>
             </div>
             <div class="about-highlight">
               <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <span>Personalized itineraries</span>
+              <span>Verified &amp; polite drivers</span>
             </div>
             <div class="about-highlight">
               <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
@@ -1087,57 +1143,41 @@
     <div class="container">
       <div class="services-header">
         <span class="section-label reveal">What We Do</span>
-        <h2 class="section-heading reveal">Everything You Need,<br/>Under One Roof</h2>
-        <p class="section-desc reveal">No need to visit five different websites. We take care of the entire trip — from the first flight search to the airport pickup when you land back home.</p>
+        <h2 class="section-heading reveal">Cab Services Designed<br/>Around Your Needs</h2>
+        <p class="section-desc reveal">Reliable transit options for personal, business, or airport travel. Clean cars, polite chauffeurs, and competitive fixed pricing.</p>
       </div>
       <div class="services-grid">
-        <!-- Flight Booking -->
+        <!-- Outstation Cabs -->
         <div class="service-card reveal">
           <div class="service-icon si-gold">
-            <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
           </div>
-          <h3>Flight Booking</h3>
-          <p>Domestic and international flights at the best available fares. We compare across airlines so you don't have to — and we'll rebook if plans change.</p>
+          <h3>Outstation Cabs</h3>
+          <p>Intercity one-way and round-trip journeys. Travel comfortably from Jamshedpur to Ranchi, Kolkata, Patna, and beyond with fixed per-km pricing.</p>
         </div>
-        <!-- Hotel Booking -->
+        <!-- Local Cabs -->
         <div class="service-card reveal">
           <div class="service-icon si-teal">
-            <svg viewBox="0 0 24 24"><path d="M3 21h18M3 7v14M21 7v14M6 7V4a1 1 0 011-1h10a1 1 0 011 1v3M9 21v-4a2 2 0 012-2h2a2 2 0 012 2v4"/><rect x="7" y="9" width="3" height="3" rx=".5"/><rect x="14" y="9" width="3" height="3" rx=".5"/></svg>
-          </div>
-          <h3>Hotel Booking</h3>
-          <p>From budget stays to 5-star resorts — we know which properties are actually worth the money, and we've got contacts that get you better rates.</p>
-        </div>
-        <!-- Cab/Taxi -->
-        <div class="service-card reveal">
-          <div class="service-icon si-terra">
             <svg viewBox="0 0 24 24"><path d="M5 17h14M5 17a2 2 0 01-2-2V9a2 2 0 012-2h1l2-3h8l2 3h1a2 2 0 012 2v6a2 2 0 01-2 2M5 17v2m14-2v2"/><circle cx="7.5" cy="13" r="1.5"/><circle cx="16.5" cy="13" r="1.5"/></svg>
           </div>
-          <h3>Cab &amp; Taxi Service</h3>
-          <p>Airport pickups, city tours, outstation rides — we arrange reliable cabs wherever you're headed. No surge pricing surprises.</p>
+          <h3>Local City Rides</h3>
+          <p>Hourly and daily rentals (e.g. 8 Hours / 80 Kilometers package) for local shopping, weddings, events, or business commutes within Jamshedpur.</p>
         </div>
-        <!-- Holiday Packages -->
+        <!-- Airport Cabs -->
         <div class="service-card reveal">
           <div class="service-icon si-terra">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
           </div>
-          <h3>Holiday Packages</h3>
-          <p>Ready-made and custom packages for families, couples, and groups. Goa, Manali, Kerala, Dubai, Thailand — you name it, we've planned it.</p>
-        </div>
-        <!-- Visa -->
-        <div class="service-card reveal">
-          <div class="service-icon si-gold">
-            <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M4 8h16M8 4v16"/><circle cx="15" cy="15" r="2"/></svg>
-          </div>
-          <h3>Visa Assistance</h3>
-          <p>Visa paperwork can be a headache. We handle documentation, appointment scheduling, and follow-ups for all major countries.</p>
+          <h3>Airport Transfers</h3>
+          <p>Punctual pickup and drop-off services for Ranchi Airport (IXR) and Kolkata Airport (CCU). We track your flight and guarantee timely arrival.</p>
         </div>
         <!-- Corporate Travel -->
         <div class="service-card reveal">
-          <div class="service-icon si-teal">
+          <div class="service-icon si-gold">
             <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M12 12v2"/></svg>
           </div>
-          <h3>Corporate Travel</h3>
-          <p>Conference trips, team outings, client visits — we manage corporate travel for several businesses in Jamshedpur. Invoicing, GST bills, all sorted.</p>
+          <h3>Corporate Cab Booking</h3>
+          <p>Reliable employee transportation, monthly executive cab rentals, and client transit services for companies in Jamshedpur. Fully itemized GST billing.</p>
         </div>
       </div>
     </div>
@@ -1147,65 +1187,72 @@
   <section class="destinations section-pad" id="destinations">
     <div class="container">
       <div class="dest-header">
-        <span class="section-label reveal">Popular Destinations</span>
-        <h2 class="section-heading reveal">Where Do You Want<br/>to Go Next?</h2>
-        <p class="section-desc reveal">These are the trips our customers keep coming back for. Got somewhere else in mind? Just ask — if it's on the map, we can get you there.</p>
+        <span class="section-label reveal">Outstation Taxi</span>
+        <h2 class="section-heading reveal">Popular Outstation Cab Routes</h2>
+        <p class="section-desc reveal">We provide round-the-clock cab services from Jamshedpur to popular destinations with competitive flat rates.</p>
       </div>
       <div class="dest-grid">
+        <!-- Ranchi -->
         <div class="dest-card reveal">
-          <img src="images/goa.png" alt="Goa beaches" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80" alt="Ranchi Outstation Cab" loading="lazy" />
           <div class="dest-overlay">
-            <span class="dest-sub">India</span>
-            <h3>Goa</h3>
-            <span class="dest-price">Packages from ₹8,999/person</span>
+            <span class="dest-sub">Outstation</span>
+            <h3>Jamshedpur to Ranchi</h3>
+            <span class="dest-price">Flat One-Way from ₹2,500</span>
           </div>
         </div>
+        <!-- Kolkata -->
         <div class="dest-card reveal">
-          <img src="images/rajasthan.png" alt="Rajasthan palaces" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1558431382-27e303142255?auto=format&fit=crop&w=600&q=80" alt="Kolkata Outstation Cab" loading="lazy" />
           <div class="dest-overlay">
-            <span class="dest-sub">India</span>
-            <h3>Rajasthan</h3>
-            <span class="dest-price">Packages from ₹12,499/person</span>
+            <span class="dest-sub">Outstation</span>
+            <h3>Jamshedpur to Kolkata</h3>
+            <span class="dest-price">Flat One-Way from ₹5,000</span>
           </div>
         </div>
+        <!-- Purulia -->
         <div class="dest-card reveal">
-          <img src="images/manali.png" alt="Manali mountains" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80" alt="Purulia Taxi" loading="lazy" />
           <div class="dest-overlay">
-            <span class="dest-sub">India</span>
-            <h3>Manali</h3>
-            <span class="dest-price">Packages from ₹9,999/person</span>
+            <span class="dest-sub">Outstation</span>
+            <h3>Jamshedpur to Purulia</h3>
+            <span class="dest-price">Flat One-Way from ₹1,500</span>
           </div>
         </div>
+        <!-- Ranchi Airport -->
         <div class="dest-card reveal">
-          <img src="images/kerala.png" alt="Kerala backwaters" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=600&q=80" alt="Ranchi Airport Pickup" loading="lazy" />
           <div class="dest-overlay">
-            <span class="dest-sub">India</span>
-            <h3>Kerala</h3>
-            <span class="dest-price">Packages from ₹11,499/person</span>
+            <span class="dest-sub">Airport Transfer</span>
+            <h3>Ranchi Airport Drop/Pickup</h3>
+            <span class="dest-price">Flat Rate from ₹2,500</span>
           </div>
         </div>
+        <!-- Bhubaneswar -->
         <div class="dest-card reveal">
-          <img src="images/dubai.png" alt="Dubai skyline" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1602643163983-ed0babc39797?auto=format&fit=crop&w=600&q=80" alt="Bhubaneswar Taxi" loading="lazy" />
           <div class="dest-overlay">
-            <span class="dest-sub">International</span>
-            <h3>Dubai</h3>
-            <span class="dest-price">Packages from ₹34,999/person</span>
+            <span class="dest-sub">Outstation</span>
+            <h3>Jamshedpur to Bhubaneswar</h3>
+            <span class="dest-price">Flat One-Way from ₹4,500</span>
           </div>
         </div>
+        <!-- Kharagpur -->
         <div class="dest-card reveal">
-          <img src="images/kashmir.png" alt="Kashmir Dal Lake" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=600&q=80" alt="Kharagpur Cab" loading="lazy" />
           <div class="dest-overlay">
-            <span class="dest-sub">India</span>
-            <h3>Kashmir</h3>
-            <span class="dest-price">Packages from ₹13,999/person</span>
+            <span class="dest-sub">Outstation</span>
+            <h3>Jamshedpur to Kharagpur</h3>
+            <span class="dest-price">Flat One-Way from ₹2,200</span>
           </div>
         </div>
+        <!-- Patna -->
         <div class="dest-card reveal">
-          <img src="images/bali.png" alt="Bali temple at sunset" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="Patna Outstation Cab" loading="lazy" />
           <div class="dest-overlay">
-            <span class="dest-sub">International</span>
-            <h3>Bali</h3>
-            <span class="dest-price">Packages from ₹39,999/person</span>
+            <span class="dest-sub">Outstation</span>
+            <h3>Jamshedpur to Patna</h3>
+            <span class="dest-price">Flat One-Way from ₹5,400</span>
           </div>
         </div>
       </div>
@@ -1217,36 +1264,36 @@
     <div class="container">
       <div class="why-header">
         <span class="section-label reveal">Why Royal Wings?</span>
-        <h2 class="section-heading reveal">We Don't Just Book Tickets.<br/>We Plan Trips That Work.</h2>
+        <h2 class="section-heading reveal">Reliable Cab Riding Facilities<br/>Across the Nation.</h2>
       </div>
       <div class="why-grid">
         <div class="why-card reveal">
           <div class="why-icon">
             <svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
-          <h3>24/7 Support</h3>
-          <p>Flight cancelled at 2 AM? Missed a connection? Call us anytime. We pick up, and we fix it. No chatbots, no hold music.</p>
+          <h3>24/7 Availability</h3>
+          <p>Early morning flight drops or late-night returns? Call us anytime. We are always on standby with round-the-clock service.</p>
         </div>
         <div class="why-card reveal">
           <div class="why-icon">
             <svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
           </div>
-          <h3>Best Price Promise</h3>
-          <p>We don't mark up for the sake of it. You'll get the same fare or better than what you'd find online — and we do the legwork.</p>
+          <h3>Transparent Fares</h3>
+          <p>Fixed route pricing, standard per-km rates, and zero surge charges. What we quote is exactly what you pay.</p>
         </div>
         <div class="why-card reveal">
           <div class="why-icon">
             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
-          <h3>Experienced Team</h3>
-          <p>Our team has planned thousands of trips. We know which hotels are worth it, which routes save time, and which hidden gems you shouldn't miss.</p>
+          <h3>Experienced Drivers</h3>
+          <p>All our drivers are locally vetted, background-checked, and highly skilled in handling local and highway terrains safely.</p>
         </div>
         <div class="why-card reveal">
           <div class="why-icon">
             <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
           </div>
           <h3>Local Presence</h3>
-          <p>We're based right here in Jamshedpur, near the airport. Walk in, sit down, talk through your plans over a cup of chai. That's how we work.</p>
+          <p>We are based right here in Sonari, Jamshedpur, near the airport. Walk in, call us, or book online for immediate service.</p>
         </div>
       </div>
     </div>
@@ -1268,12 +1315,12 @@
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
-          <p class="test-quote">"We booked our entire Rajasthan trip through Royal Wings — Jaipur, Udaipur, Jodhpur, the lot. Everything was perfectly arranged, and the hotels they picked were genuinely nice, not the kind of places you'd regret booking. Will definitely use them again."</p>
+          <p class="test-quote">"We hired an Innova Crysta from Royal Wings for our family trip from Jamshedpur to Ranchi. The vehicle was spotlessly clean, and the driver was extremely polite and professional. The fare was exactly as estimated with no hidden charges."</p>
           <div class="test-author">
             <div class="test-avatar">SK</div>
             <div class="test-author-info">
               <div class="name">Sunil Kumar</div>
-              <div class="role">Family trip to Rajasthan</div>
+              <div class="role">Outstation Family Trip</div>
             </div>
           </div>
         </div>
@@ -1285,12 +1332,12 @@
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
-          <p class="test-quote">"I was stressed about my Dubai visa — first time going abroad. These guys handled everything, told me exactly what documents to get, and my visa came through in four days. Made the whole process easy."</p>
+          <p class="test-quote">"I regularly use their Ranchi Airport transfer service. They are always punctual, and the drivers are very safe. Even when my flight was delayed, the driver waited patiently without any extra charge."</p>
           <div class="test-author">
             <div class="test-avatar">PA</div>
             <div class="test-author-info">
               <div class="name">Priya Agarwal</div>
-              <div class="role">Dubai visa + holiday</div>
+              <div class="role">Ranchi Airport Transfer</div>
             </div>
           </div>
         </div>
@@ -1302,7 +1349,24 @@
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
             <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           </div>
-          <p class="test-quote">"We use Royal Wings for all our company travel — flights, hotels, airport transfers. They always get back to us fast, and the billing is clean with proper GST invoices. Saves us a lot of time."</p>
+          <p class="test-quote">"We hired their luxury cab service for my sister's wedding in Jamshedpur. They provided a fleet of pristine white sedans and an Innova Crysta for guest transit. Everything went exactly to schedule."</p>
+          <div class="test-author">
+            <div class="test-avatar">AD</div>
+            <div class="test-author-info">
+              <div class="name">Ankit Dey</div>
+              <div class="role">Wedding Transit Service</div>
+            </div>
+          </div>
+        </div>
+        <div class="test-card reveal">
+          <div class="test-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="test-quote">"We use Royal Wings for all our company travel — airport transfers and outstation client visits. They always get back to us fast, and the billing is clean with proper GST invoices. Saves us a lot of time."</p>
           <div class="test-author">
             <div class="test-avatar">RM</div>
             <div class="test-author-info">
@@ -1338,8 +1402,8 @@
       <div class="contact-grid">
         <div class="contact-info reveal-left">
           <span class="section-label">Get In Touch</span>
-          <h2 class="section-heading">Let's Plan Your<br/>Next Trip Together</h2>
-          <p class="section-desc">Drop by our office, give us a call, or fill out the form — we usually get back within a couple of hours.</p>
+          <h2 class="section-heading">Book Your Cab<br/>In Just a Few Steps</h2>
+          <p class="section-desc">Drop by our office, call us directly, or send an online inquiry — we usually confirm bookings within a few minutes.</p>
           <ul class="contact-info-list">
             <li>
               <div class="ci-icon">
@@ -1381,7 +1445,7 @@
         </div>
         <div class="contact-form-wrap reveal-right">
           <h3>Send Us a Message</h3>
-          <p>Tell us where you'd like to go, and we'll get back with options.</p>
+          <p>Enter your booking details below and our team will get back to you with confirmation.</p>
           <form id="contact-form" onsubmit="handleFormSubmit(event)">
             <div class="form-row">
               <div class="form-group">
@@ -1399,7 +1463,7 @@
             </div>
             <div class="form-group">
               <label for="form-message">Your Message</label>
-              <textarea id="form-message" name="message" placeholder="Tell us about your travel plans — where you want to go, how many people, preferred dates..." required></textarea>
+              <textarea id="form-message" name="message" placeholder="Tell us about your ride plans — pickup point, destination, date & time, and vehicle preference..." required></textarea>
             </div>
             <button type="submit" class="form-submit" id="form-submit">
               Send Message
@@ -1444,7 +1508,8 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="rides.html">Popular Rides</a></li>
+            <li><a href="#destinations">Cab Routes</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -1452,12 +1517,12 @@
         <div class="footer-col">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="#services">Flight Booking</a></li>
-            <li><a href="#services">Hotel Booking</a></li>
-            <li><a href="#services">Holiday Packages</a></li>
-            <li><a href="#services">Cab & Taxi</a></li>
-            <li><a href="#services">Visa Assistance</a></li>
-            <li><a href="#services">Corporate Travel</a></li>
+            <li><a href="#services">Outstation Cabs</a></li>
+            <li><a href="#services">Local City Commutes</a></li>
+            <li><a href="#services">Birsa Munda Airport Drop</a></li>
+            <li><a href="#services">Kolkata Airport Drop</a></li>
+            <li><a href="#services">Corporate Employee Transit</a></li>
+            <li><a href="#services">Wedding Fleet Rentals</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1484,7 +1549,7 @@
 
   <!-- FLOATING WHATSAPP -->
   <a
-    href="https://wa.me/917667030073?text=Hi%2C%20I%27m%20interested%20in%20booking%20a%20trip%20with%20Royal%20Wings%20Travel."
+    href="https://wa.me/917667030073?text=Hi%20Royal%20Wings%20Travel,%20I%20would%20like%20to%20book%20a%20cab%20ride."
     target="_blank"
     rel="noopener noreferrer"
     class="whatsapp-float"
@@ -1496,6 +1561,19 @@
       <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.29-1.23l-.31-.18-2.87.85.78-2.83-.2-.32A8 8 0 1112 20z"/>
     </svg>
     <span class="wa-tooltip">Chat with us!</span>
+  </a>
+
+  <!-- FLOATING CALL BUTTON -->
+  <a
+    href="tel:7667030073"
+    class="phone-float"
+    id="phone-float"
+    aria-label="Call Royal Wings Travel"
+  >
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+    </svg>
+    <span class="phone-tooltip">Call us now!</span>
   </a>
 
   <script>
@@ -1625,6 +1703,7 @@
         }
       });
     }, { passive: true });
+
   </script>
 
 </body>

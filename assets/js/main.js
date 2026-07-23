@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // WhatsApp button
         const waBtn = document.createElement('a');
         waBtn.className = 'floating-widget-btn whatsapp-widget';
-        waBtn.href = 'https://wa.me/917667030073?text=Hi%20Royal%20Wings%20Travel,%20I%20would%20like%20to%20inquire%20about%20a%20travel%20package.';
+        waBtn.href = 'https://wa.me/917667030073?text=Hi%20Royal%20Wings%20Travel,%20I%20would%20like%20to%20book%20a%20cab%20ride.';
         waBtn.target = '_blank';
         waBtn.rel = 'noopener noreferrer';
         waBtn.title = 'Chat on WhatsApp';
